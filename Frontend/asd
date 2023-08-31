@@ -1,0 +1,11 @@
+15/08. 15:00hs en adelante
+17/08. 08:00hs en adelante
+18/08. 08:00hs en adelante
+
+Breakpoint	Class infix	Dimensions
+X-Small	None	<576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px
