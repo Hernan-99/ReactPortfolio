@@ -1,1 +1,1 @@
-# Hi, welcome to my repository of my web portfolio
+# Hi, welcome to my repository for my web portfolio
