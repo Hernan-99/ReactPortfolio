@@ -1,7 +1,7 @@
 import "../assets/styles/About.css";
 import img from "../assets/img/img.jpg";
 import { motion } from "framer-motion";
-export const About = () => {
+export const About = (props) => {
   const fadeScrollImg = {
     initial: { opacity: 0, y: 250 },
     animate: { opacity: 1, y: 0 },
@@ -11,6 +11,7 @@ export const About = () => {
     initial: { opacity: 0, y: 200 },
     animate: { opacity: 1, y: 0 },
   };
+
   return (
     <div className="container-fluid skewed">
       <div className="row">
@@ -35,18 +36,10 @@ export const About = () => {
             viewport={{ once: true }}
             className="descripcion"
           >
-            <p>
-              Actualmente estudio una tecnicatura en desarrollo de software y
-              por otro lado, complemento mis estudios formales de forma
-              autodidacta aprendiendo diseño y desarrollo web. Soy una persona
-              comprometida con gran interés en las nuevas tecnologías, me
-              capacito constantemente para superarme. Mi meta actual es
-              pertenecer a una empresa y equipo donde pueda aplicar mis
-              conocimientos de forma profesional, que me acompañe en mi progreso
-              personal y laboral, y a la cual pueda aportar toda mi dedicación,
-              conocimientos y habilidades.
-            </p>
-            <button className="cv btn-cv">Descargar cv</button>
+            <p>{props.description}</p>
+            <a className="cv btn-cv" href={props.cv}>
+              Descargar cv
+            </a>
           </motion.div>
         </div>
       </div>

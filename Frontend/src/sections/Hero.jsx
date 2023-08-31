@@ -1,7 +1,7 @@
 import "../assets/styles/Hero.css";
 import { motion } from "framer-motion";
 
-export const Hero = () => {
+export const Hero = (props) => {
   return (
     <motion.section
       className="container text-md-start text-lg-start text-center  hero"
@@ -18,10 +18,10 @@ export const Hero = () => {
               animate={{ color: "#00cdac" }}
               className="nombre"
             >
-              Hernán Sanchez
+              {props.name}
             </motion.span>
             <br />
-            Desarrollador Front End.
+            {props.profession}
           </h1>
           <button className="btnA btn-about">Sobre mi</button>
         </div>
