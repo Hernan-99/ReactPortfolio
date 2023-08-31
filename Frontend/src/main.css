@@ -1,0 +1,11 @@
+html {
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: inherit;
+}
