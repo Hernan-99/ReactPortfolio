@@ -2,7 +2,7 @@
 
 ## This project is a app web Full Stack.
 
-### They technologies used for the Back End:
+### They technologies used for the Front End:
 
 - [ReactJS](https://react.dev/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
