@@ -12,3 +12,7 @@
 
 - [NodeJS](https://nodejs.org/es)
 - [Express](https://expressjs.com/es/)
+
+### Database technology:
+
+- [MySQL](https://www.mysql.com/)
