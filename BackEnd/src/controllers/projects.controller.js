@@ -9,8 +9,19 @@ export const getProjects = async (req, res) => {
   }
 };
 
-export const getProject = (req, res) => {
-  res.send("project for id");
+export const getProject = async (req, res) => {
+  try {
+    const [rows] = await pool.query(
+      "SELECT * FROM project WHERE id_project = ?"
+    );
+    if (!rows.length) {
+      return res.status(404).send({ message: "Ops!, algo salio mal" });
+    } else {
+      res.json(rows[0]);
+    }
+  } catch (error) {
+    res.status(404).send({ message: "Ops!, algo salio mal" });
+  }
 };
 
 export const postProject = (req, res) => {
