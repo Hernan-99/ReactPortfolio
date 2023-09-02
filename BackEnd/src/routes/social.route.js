@@ -11,7 +11,7 @@ const router = Router();
 router.get("/socials", getSocials);
 router.get("/social/:id", getSocial);
 router.post("/create/social", postSocial);
-router.patch("/edit/social", editSocial);
-router.delete("/del/social", delSocial);
+router.patch("/edit/social/:id", editSocial);
+router.delete("/del/social/:id", delSocial);
 
 export default router;
