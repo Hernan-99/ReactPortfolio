@@ -1,4 +1,5 @@
 import { pool } from "../db.js";
+
 export const getSocials = async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM social");
@@ -44,8 +45,31 @@ export const postSocial = async (req, res) => {
   }
 };
 
-export const editSocial = async (req, res) => {
-  res.send("edit social");
+export const patchSocial = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { icon_social, link_social } = req.body;
+
+    const results = await pool.query(
+      "UPDATE social SET icon_social = IFNULL(?, icon_social), link_social = IFNULL(?, link_social) WHERE id_social = ?",
+      [icon_social, link_social, id]
+    );
+
+    if (results.affectedRows) {
+      return res
+        .status(404)
+        .json({ message: "Ops!, red social no encontrada" });
+    }
+
+    const [rows] = await pool.query(
+      "SELECT * FROM social WHERE id_social = ?",
+      [id]
+    );
+    res.json(rows[0]);
+  } catch (error) {
+    res.status(500).json({ message: "Ops!, ocurrio un error" });
+    console.log(error);
+  }
 };
 
 export const delSocial = async (req, res) => {
