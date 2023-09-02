@@ -10,7 +10,15 @@ export const getSocials = async (req, res) => {
 };
 
 export const getSocial = async (req, res) => {
-  res.send("social for id");
+  const [rows] = await pool.query("SELECT * FROM social WHERE id_social = ?", [
+    req.id.params,
+  ]);
+
+  if (!rows.length) {
+    res.status(404).json({ message: "Ops!, red social no encontrada" });
+  } else {
+    res.json(rows[0]);
+  }
 };
 
 export const postSocial = async (req, res) => {
