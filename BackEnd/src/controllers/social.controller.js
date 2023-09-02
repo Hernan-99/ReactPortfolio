@@ -73,5 +73,20 @@ export const patchSocial = async (req, res) => {
 };
 
 export const delSocial = async (req, res) => {
-  res.send("delete social");
+  try {
+    const [results] = await pool.query(
+      "DELETE FROM social WHERE id_social = ?",
+      [req.params.id]
+    );
+
+    if (results.affectedRows <= 0) {
+      return res
+        .status(404)
+        .json({ message: "Ops!, red social no encontrada" });
+    }
+    res.status(204).send("Proyecto eliminado");
+  } catch (error) {
+    res.status(500).json({ message: "Ops!, ocurrio un error" });
+    console.log(error);
+  }
 };
